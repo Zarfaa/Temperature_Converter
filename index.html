@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" type="text/css" href="Style.css">
+</head>
+<body>
+    <div>
+        <h1>Temperature Converter</h1>
+    </div>
+    <div class="container1">
+        <div>
+            <label for="celsius">Celsius:</label>
+            <input type="number" id="celsius">
+        </div>
+        <div>
+            <label for="kelvin">Kelvin:</label>
+            <input type="number" id="kelvin">
+        </div>
+    </div>
+
+    <div class="container2">
+        <div>
+            <label for="kelvin2">Kelvin:</label>
+            <input type="number" id="kelvin2">
+        </div>
+        <div>
+            <label for="fahrenheit">Fahrenheit:</label>
+            <input type="number" id="fahrenheit">
+        </div>
+    </div>
+
+    <div class="container3">
+        <div>
+            <label for="celsius2">Celsius:</label>
+            <input type="number" id="celsius2">
+        </div>
+        <div>
+            <label for="fahrenheit2">Fahrenheit:</label>
+            <input type="number" id="fahrenheit2">
+        </div>
+    </div>
+
+    <script>
+        var celsiusInput = document.getElementById("celsius");
+        var kelvinInput = document.getElementById("kelvin");
+        var kelvin2Input = document.getElementById("kelvin2");
+        var fahrenheitInput = document.getElementById("fahrenheit");
+        var fahrenheit2Input = document.getElementById("fahrenheit2");
+        var celsius2Input = document.getElementById("celsius2");
+
+        // Celsius to Kelvin and Kelvin to Celsius
+        celsiusInput.addEventListener('input', function() {
+            let c = parseFloat(this.value);
+            let k = c + 273.15; // Celsius to Kelvin
+            kelvinInput.value = k.toFixed(2);
+        });
+
+        kelvinInput.addEventListener('input', function() {
+            let k = parseFloat(this.value);
+            let c = k - 273.15; // Kelvin to Celsius
+            celsiusInput.value = c.toFixed(2);
+        });
+
+        // Fahrenheit to Kelvin and Kelvin to Fahrenheit
+        fahrenheitInput.addEventListener('input', function() {
+            let f = parseFloat(this.value);
+            let k = (f + 459.67) * 5/9; // Fahrenheit to Kelvin
+            kelvin2Input.value = k.toFixed(2);
+        });
+
+        kelvin2Input.addEventListener('input', function() {
+            let k = parseFloat(this.value);
+            let f = (k * 9/5) - 459.67; // Kelvin to Fahrenheit
+            fahrenheitInput.value = f.toFixed(2);
+        });
+
+        // Celsius to Fahrenheit and Fahrenheit to Celsius
+        celsius2Input.addEventListener('input', function() {
+            let c = parseFloat(this.value);
+            let f = (c * 9/5) + 32; // Celsius to Fahrenheit
+            fahrenheit2Input.value = f.toFixed(2);
+        });
+
+        fahrenheit2Input.addEventListener('input', function() {
+            let f = parseFloat(this.value);
+            let c = (f - 32) * 5/9; // Fahrenheit to Celsius
+            celsius2Input.value = c.toFixed(2);
+        });
+    </script>
+</body>
+</html>
